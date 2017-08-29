@@ -1,0 +1,212 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: white;
+}
+
+.logo {
+    background: url(../img/fnblogo.png) no-repeat center center;
+    width: 75px;
+    height: 75px;
+    margin: 10px auto 10px 30px;
+}
+
+h2 {
+    position: absolute;
+    left: 40%;
+    color: black;
+    top: auto;
+}
+
+.navbar {
+    background: #4BACC6;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    margin-left: -15px;
+    margin-right: -15px;
+    border: none;
+    color: white;
+    border-bottom: 1px solid #283849;
+}
+
+.navbar-default .navbar-brand {
+    text-transform: uppercase;
+    color: #fafafa;
+}
+
+.navbar-default .navbar-nav li a {
+    color: white;
+}
+
+.navbar-default .navbar-nav li a:hover {
+    color: #fafafa;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #fafafa;
+}
+
+.navbar button.navbar-toggle {
+    border: none !important;
+}
+
+.navbar button.navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar button.navbar-toggle:focus .icon-bar,
+.navbar button.navbar-toggle:hover .icon-bar {
+    background-color: #6995c0;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+
+p {
+    margin: 0;
+}
+
+.vertical-center-wrapper {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.vertical-center-content {
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+html, input, button {
+    -webkit-font-smoothing: antialiased;
+}
+
+/*-- Forms --*/
+form {
+    width: 100%;
+}
+.table {
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.table thead {background-color: #f5f5f5;}
+
+.table thead th {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.table > tbody > tr.active > td {
+    background-color: #00abab;
+    color: #ffffff;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.table tbody tr:hover {cursor: pointer;}
+
+.table td {
+    color: #777777;
+    background-color: #fff;
+}
+.table td.check {text-align: center;}
+
+.table td .checked {width:35px;}
+.table td .glyphicon {color: #ffffff;}
+
+button {transition: all 0.3s ease-out;}
+.btn-primary {
+    color: #fff;
+    background-color: #4BACC6;
+}
+.btn-primary:hover {
+    color: white;
+    background: #00abab;
+}
+
+/*-- Login --*/
+
+.login {
+    width: 360px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-left: -180px;
+    margin-top: -100px;
+    position: absolute;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.login .btn-default {
+    background: #4BACC6;
+}
+
+.login .btn-default:hover {
+    color: black;
+    background: #4BACC6;
+}
+
+.login .btn {
+    margin-top: 20px;
+    border-radius: 0;
+    border: none;
+}
+
+.form-group {
+    position: relative;
+}
+
+.login label {
+    font-size: 14px;
+    color: black;
+}
+
+.login-error {
+    width: 700px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -50px;
+    position: absolute;
+}
+
+.login-error a {
+    color: #283849;
+}
+
+.login-error a:hover {
+    color: #4BACC6;
+}
+
+.login-error .alert-danger {
+    background: #4BACC6;
+    border: 1px solid white;
+    border-radius: 0;
+}
+
+/*-- Media --*/
+
+@media (max-width: 768px) {
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="donationApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kynsna Donations</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/app.css">
+    </head>
+
+    <body>
+    <!-- View for adding the navigation bar -->
+    <div ui-view="nav"></div>
+        <div class="container main" ng-include="'partials/main.html'"></div>
+
+        <!-- JS -->
+        <script type="text/javascript" src="../lib/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../lib/angular.min.js"></script>
+        <script type="text/javascript" src="../lib/angular-resource.min.js"></script>
+
+        <!-- Angular services, controllers, directives -->
+        <script type="text/javascript" src="../js/app.js"></script>
+        <script type="text/javascript" src="../js/services.js"></script>
+        <script type="text/javascript" src="../js/directives.js"></script>
+        <script type="text/javascript" src="../js/controllers.js"></script>
+    </body>
+</html>

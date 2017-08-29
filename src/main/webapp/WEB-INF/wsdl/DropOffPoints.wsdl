@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/DropOffPoints/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DropOffPoints" targetNamespace="http://www.example.org/DropOffPoints/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/DropOffPoints/">
+      <xsd:element name="getDropOffPoints">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="DropOffPointsRequest"
+          		type="tns:DropOffPointsRequestType">
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDropOffPointsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="DropOffPointsResponse"
+          		type="tns:DropOffPointsResponseType">
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="DropOffPointsRequest">
+      	<xsd:sequence>
+      		<xsd:element name="Country" type="xsd:string"></xsd:element>
+      		<xsd:element name="Province" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      	<xsd:attribute name="ID" type="xsd:string"></xsd:attribute>
+      </xsd:complexType>
+    
+      <xsd:complexType name="DropOffPointsResponseType">
+      	<xsd:sequence>
+      		<xsd:element name="ID" type="xsd:string"></xsd:element>
+      		<xsd:element name="Description" type="xsd:string"></xsd:element>
+      		<xsd:element name="Address" type="xsd:string"></xsd:element>
+      		<xsd:element name="ContactNumber" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="DropOffPointsRequestType">
+      	<xsd:sequence>
+      		<xsd:element name="ID" type="xsd:string"></xsd:element>
+      		<xsd:element name="Country" type="xsd:string"></xsd:element>
+      		<xsd:element name="Province" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getDropOffPointsRequest">
+    <wsdl:part element="tns:getDropOffPoints" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDropOffPointsResponse">
+    <wsdl:part element="tns:getDropOffPointsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="DropOffPointsPortType">
+    <wsdl:operation name="getDropOffPoints">
+      <wsdl:input message="tns:getDropOffPointsRequest"/>
+      <wsdl:output message="tns:getDropOffPointsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DropOffPointsSOAP" type="tns:DropOffPointsPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDropOffPoints">
+      <soap:operation soapAction="http://www.example.org/DropOffPoints/getDropOffPoints"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DropOffPoints">
+    <wsdl:port binding="tns:DropOffPointsSOAP" name="DropOffPointsPort">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

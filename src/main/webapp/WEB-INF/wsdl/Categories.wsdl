@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Categories/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Categories" targetNamespace="http://www.example.org/Categories/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Categories/">
+      <xsd:element name="getCategories">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="CategoriesRequest"
+          		type="tns:CategoriesRequestType">
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCategoriesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="CategoriesResponse"
+          		type="tns:CategoriesResponseType">
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="CategoriesResponseType">
+      	<xsd:sequence>
+      		<xsd:element name="ID" type="xsd:string"></xsd:element>
+      		<xsd:element name="Country" type="xsd:string"></xsd:element>
+      		<xsd:element name="Description" type="xsd:string"></xsd:element>
+      		<xsd:element name="maxUnits" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="CategoriesRequestType">
+      	<xsd:sequence>
+      		<xsd:element name="ID" type="xsd:string"></xsd:element>
+      		<xsd:element name="Country" type="xsd:string"></xsd:element>
+      		<xsd:element name="Province" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getCategoriesRequest">
+    <wsdl:part element="tns:getCategories" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getCategoriesResponse">
+    <wsdl:part element="tns:getCategoriesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="CategoriesPortType">
+    <wsdl:operation name="getCategories">
+      <wsdl:input message="tns:getCategoriesRequest"/>
+      <wsdl:output message="tns:getCategoriesResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CategoriesSOAP" type="tns:CategoriesPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCategories">
+      <soap:operation soapAction="http://www.example.org/Categories/getCategories"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Categories">
+    <wsdl:port binding="tns:CategoriesSOAP" name="CategoriesPort">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

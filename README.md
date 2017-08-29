@@ -1,1 +1,1 @@
-# JbossVolunteerDemoApp
+# Jboss Volunteer Demo App

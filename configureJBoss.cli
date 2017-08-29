@@ -1,0 +1,23 @@
+# please run below jboss-cli.sh or jboss-cli.bat to setup security domain and logs
+# jboss-cli.sh --file=configureJBoss.cli
+
+connect
+
+# add security domain
+# ---------------------------------------
+
+/subsystem=security/security-domain=KnysnaPractical/:add
+/subsystem=security/security-domain=KnysnaPractical/authentication=classic:add
+/subsystem=security/security-domain=KnysnaPractical/authentication=classic/login-module=KnysnaPracticalDBLogin:add(code="Database", flag="required", module-options=[("dsJndiName"=>"java:jboss\/PostgresDS"),("principalsQuery"=>"SELECT ENCRYPTED_PASSWORD FROM VOLUNTEER WHERE USERNAME = ?"), ("rolesQuery"=>"SELECT R.NAME, 'Roles' FROM ROLE_VOLUNTEER RV INNER JOIN ROLE R ON R.ID = RV.ROLES_ID INNER JOIN VOLUNTEER V ON V.ID = RV.VOLUNTEERS_ID WHERE V.USERNAME = ?")])
+
+
+# add Logging
+# ---------------------------------------
+
+/subsystem=logging/logger=co.za.fnb:add
+/subsystem=logging/logger=co.za.fnb:write-attribute(name=level,value=ALL)
+/subsystem=logging/console-handler=CONSOLE:write-attribute(name=level,value=DEBUG)
+
+/:reload
+
+quit
